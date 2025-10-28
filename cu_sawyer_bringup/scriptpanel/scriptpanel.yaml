@@ -1,0 +1,49 @@
+config:
+  num_buttons_per_row: 3
+  button_width: 140
+  button_height: 60
+  font: LiberationMono:Bold
+scripts:
+  - label: Enable Robot
+    script: robot-enable.sh
+    tooltip: engage motors / unlock joints
+    group: A-motor-control
+  - label: Disable Robot
+    script: robot-disable.sh
+    tooltip: disengage motors / lock joints
+    group: A-motor-control
+  - label: Home Joints
+    script: robot-home-joints.sh
+    tooltip: home joints through small motions
+    group: A-motor-control
+  - label: Head Camera
+    script: head-camera.py
+    tooltip: |
+      Enable head camera
+      (It is not enabled by default)
+    group: B-cameras
+  - label: Wrist Camera
+    script: wrist-camera.py
+    tooltip: |
+      Enable wrist camera streaming
+      (Disables the head camera)
+    group: B-cameras
+  - label: Move to Zero
+    script: move-to-zero.sh
+    tooltip: |
+      Move robot to a well-defined 0 joint state
+      There is no collision avoidance with tables/objects!
+      (Elbow up)
+    group: C-motion
+  - label: Blink Red
+    script: blink-red.sh
+    tooltip: Head LED blinks red twice
+    group: D-LEDs
+  - label: CU-ify
+    script: cuify.sh
+    tooltip: show CU logo on head screen
+  - label: Intera
+    script: intera.sh
+    tooltip: |
+      start chromium with intera interface
+      (not available in SDK mode)
