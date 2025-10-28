@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cu_sawyer_env</name>
+  <version>0.0.0</version>
+  <description>load environment variables for CU sawyer with this workspace</description>
+  <maintainer email="me@v4hn.de">v4hn</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
