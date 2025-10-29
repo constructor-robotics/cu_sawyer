@@ -12,6 +12,6 @@ install(
 )
 
 install(
-  DIRECTORY data
+  DIRECTORY launch data config
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
