@@ -12,10 +12,6 @@ scripts:
     script: robot-disable.sh
     tooltip: disengage motors / lock joints
     group: A-motor-control
-  - label: Home Joints
-    script: robot-home-joints.sh
-    tooltip: home joints through small motions
-    group: A-motor-control
   - label: Head Camera
     script: head-camera.py
     tooltip: |
