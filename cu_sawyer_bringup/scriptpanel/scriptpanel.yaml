@@ -31,6 +31,10 @@ scripts:
       There is no collision avoidance with tables/objects!
       (Elbow up)
     group: C-motion
+  - label: Loosen Head
+    script: free-head.sh
+    tooltip: Let user move head display freely
+    group: D-LEDs
   - label: Blink Red
     script: blink-red.sh
     tooltip: Head LED blinks red twice
