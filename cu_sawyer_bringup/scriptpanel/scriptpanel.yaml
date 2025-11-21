@@ -4,6 +4,11 @@ config:
   button_height: 60
   font: LiberationMono:Bold
 scripts:
+  - label: Launch CU Support
+    script: launch-support.sh
+    tooltip: launch auxiliary nodes for CU robot functionality
+    group: A-launch
+    terminal: true
   - label: Enable Robot
     script: robot-enable.sh
     tooltip: engage motors / unlock joints
@@ -30,6 +35,18 @@ scripts:
       Move robot to a well-defined 0 joint state
       There is no collision avoidance with tables/objects!
       (Elbow up)
+    group: C-motion
+  - label: Grasp
+    script: gripper-closed.sh
+    tooltip: |
+      Close the gripper
+      (Requires CU Support)
+    group: C-motion
+  - label: Release
+    script: gripper-open.sh
+    tooltip: |
+      Open the gripper
+      (Requires CU Support)
     group: C-motion
   - label: Loosen Head
     script: free-head.sh

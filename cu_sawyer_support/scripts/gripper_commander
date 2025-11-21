@@ -1,0 +1,64 @@
+#!/usr/bin/env python
+
+import rospy
+import intera_interface.gripper_factory
+from actionlib import SimpleActionServer
+from control_msgs.msg import GripperCommandAction, GripperCommandResult, GripperCommand
+
+class GripperCommander:
+    # full open finger span between metal mounts is 0.028m, so half for each finger
+    POSITION_OPEN = 0.014
+    # minimum finger span between metal mounts is 0.015m, so half for each finger
+    POSITION_CLOSED = 0.0075
+    # The sawyer end_effector configuration lists an execution duration of 0.4s
+    ACTUATION_DURATION = rospy.Duration(0.4)
+
+    def __init__(self):
+        self.gripper = intera_interface.gripper_factory.get_current_gripper_interface()
+        self.gripper.initialize()
+        rospy.sleep(1.0)
+        if self.gripper.needs_init():
+            rospy.logfatal("Gripper failed to initialize.")
+            return
+        self.gripper.set_ee_signal_value("power", True)
+        
+        # full motion once on startup
+        self.command_callback(GripperCommand(position=0.0))
+        self.command_callback(GripperCommand(position=1.0))
+
+        self.sub = rospy.Subscriber("robot/gripper/command", GripperCommand, self.command_callback)
+        self.server = SimpleActionServer(
+            "robot/gripper",
+            GripperCommandAction,
+            execute_cb=self.execute_callback,
+            auto_start=False,
+        )
+        self.server.start()
+        rospy.loginfo("Gripper Commander initialized.")
+
+    def command_callback(self, msg):
+        # this is the best thing we can do for this gripper
+        if msg.position > self.POSITION_CLOSED:
+            self.gripper.set_ee_signal_value('grip', False)
+            rospy.sleep(self.ACTUATION_DURATION)
+            return self.POSITION_OPEN 
+        else:
+            self.gripper.set_ee_signal_value('grip', True)
+            rospy.sleep(self.ACTUATION_DURATION)
+            return self.POSITION_CLOSED 
+
+    def execute_callback(self, goal):
+        new_position = self.command_callback(goal.command)
+        rospy.sleep(0.4) # wait official response time as set in sawyer framework
+        result = GripperCommandResult()
+        result.position = new_position
+        result.effort = 0.0
+        result.stalled = True # The low-level Schunk documentation indicates a "Teil gegriffen" state that might be read.
+        result.reached_goal = True
+        self.server.set_succeeded(result)
+
+
+if __name__ == "__main__":
+    rospy.init_node("gripper_commander")
+    GripperCommander()
+    rospy.spin()
