@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: cu_sawyer_bringup
+    relative_path: data/robot.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/sawyer.srdf
+  CONFIG:
+    author_name: Michael Goerner
+    author_email: migoerner@constructor.university
+    generated_timestamp: 1763914349

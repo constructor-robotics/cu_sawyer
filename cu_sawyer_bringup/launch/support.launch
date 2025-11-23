@@ -2,4 +2,11 @@
 <launch>
     <node name="gripper_commander" pkg="cu_sawyer_support" type="gripper_commander" />
     <node name="joint_trajectory_commander" pkg="intera_interface" type="joint_trajectory_action_server.py" />
+    <node name="screen_display_frame" pkg="tf2_ros" type="static_transform_publisher" args="0 0 0.002 0 0 0 1 screen screen_display"/>
+    <node name="cuify" pkg="cu_sawyer_bringup" type="cuify.sh"/>
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <rosparam param="source_list">[robot/joint_states]</rosparam>
+    </node>
+
+    <include file="$(find cu_sawyer_moveit_config)/launch/move_group.launch"/>
 </launch>
