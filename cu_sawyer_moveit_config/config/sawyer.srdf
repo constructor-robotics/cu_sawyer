@@ -23,13 +23,13 @@
         <joint name="right_j6" value="0"/>
     </group_state>
     <group_state name="ready" group="arm">
-        <joint name="right_j0" value="0"/>
-        <joint name="right_j1" value="1.2001"/>
-        <joint name="right_j2" value="0.0511"/>
-        <joint name="right_j3" value="-2.3021"/>
-        <joint name="right_j4" value="0"/>
-        <joint name="right_j5" value="2.1508"/>
-        <joint name="right_j6" value="0"/>
+        <joint name="right_j0" value="0.0"/>
+        <joint name="right_j1" value="1.12"/>
+        <joint name="right_j2" value="0.05"/>
+        <joint name="right_j3" value="-2.30"/>
+        <joint name="right_j4" value="-0.00"/>
+        <joint name="right_j5" value="2.15"/>
+        <joint name="right_j6" value="0.00"/>
     </group_state>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="controller_box" link2="head" reason="Never"/>
