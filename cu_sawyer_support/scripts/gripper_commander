@@ -21,12 +21,12 @@ class GripperCommander:
             rospy.logfatal("Gripper failed to initialize.")
             return
         self.gripper.set_ee_signal_value("power", True)
-        
+
         # full motion once on startup
         self.command_callback(GripperCommand(position=0.0))
         self.command_callback(GripperCommand(position=1.0))
 
-        self.sub = rospy.Subscriber("robot/gripper/command", GripperCommand, self.command_callback)
+        self.sub = rospy.Subscriber("robot/gripper/command", GripperCommand, self.command_callback, queue_size=1)
         self.server = SimpleActionServer(
             "robot/gripper",
             GripperCommandAction,
