@@ -11,7 +11,7 @@ class GripperCommander:
     # minimum finger span between metal mounts is 0.015m, so half for each finger
     POSITION_CLOSED = 0.0075
     # The sawyer end_effector configuration lists an execution duration of 0.4s
-    ACTUATION_DURATION = rospy.Duration(0.4)
+    ACTUATION_DURATION = rospy.Duration(1.0)
 
     def __init__(self):
         self.gripper = intera_interface.gripper_factory.get_current_gripper_interface()
@@ -49,7 +49,6 @@ class GripperCommander:
 
     def execute_callback(self, goal):
         new_position = self.command_callback(goal.command)
-        rospy.sleep(0.4) # wait official response time as set in sawyer framework
         result = GripperCommandResult()
         result.position = new_position
         result.effort = 0.0
