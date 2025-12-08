@@ -52,7 +52,7 @@ class GripperCommander:
         result = GripperCommandResult()
         result.position = new_position
         result.effort = 0.0
-        result.stalled = True # The low-level Schunk documentation indicates a "Teil gegriffen" state that might be read.
+        result.stalled = (self.gripper.get_ee_signal_value('open') == False)
         result.reached_goal = True
         self.server.set_succeeded(result)
 
