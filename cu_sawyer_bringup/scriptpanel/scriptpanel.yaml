@@ -29,6 +29,13 @@ scripts:
       Enable wrist camera streaming
       (Disables the head camera)
     group: B-cameras
+  - label: Move to Ready
+    script: move-to-ready.sh
+    tooltip: |
+      Move robot to a generic "ready" state
+      There is no collision avoidance with tables/objects!
+      (Elbow down)
+    group: C-motion
   - label: Move to Zero
     script: move-to-zero.sh
     tooltip: |
@@ -41,26 +48,27 @@ scripts:
     tooltip: |
       Close the gripper
       (Requires CU Support)
-    group: C-motion
+    group: D-gripper
   - label: Release
     script: gripper-open.sh
     tooltip: |
       Open the gripper
       (Requires CU Support)
-    group: C-motion
+    group: D-gripper
   - label: Loosen Head
     script: free-head.sh
     tooltip: Let user move head display freely
-    group: D-LEDs
+    group: Y-aux
   - label: Blink Red
     script: blink-red.sh
     tooltip: Head LED blinks red twice
-    group: D-LEDs
+    group: Y-head
   - label: CU-ify
     script: cuify.sh
+    group: Y-head
     tooltip: show CU logo on head screen
   - label: Intera
     script: intera.sh
     tooltip: |
       start chromium with intera interface
-      (not available in SDK mode)
+      (not available in default SDK mode)
