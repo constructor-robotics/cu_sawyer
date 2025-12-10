@@ -72,3 +72,8 @@ scripts:
     tooltip: |
       start chromium with intera interface
       (not available in default SDK mode)
+  - label: Speech Prompt
+    script: speech-prompt.sh
+    terminal: True
+    tooltip: |
+      A prompt to input text the system should say

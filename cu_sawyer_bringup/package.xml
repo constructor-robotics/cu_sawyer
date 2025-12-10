@@ -11,4 +11,5 @@
   <depend>cu_sawyer_support</depend>
   <depend>intera_interface</depend>
   <depend>sawyer_description</depend>
+  <depend>tts_piper</depend>
 </package>

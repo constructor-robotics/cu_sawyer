@@ -9,4 +9,6 @@
     </node>
 
     <include file="$(find cu_sawyer_moveit_config)/launch/move_group.launch"/>
+
+    <include file="$(find tts_piper)/launch/tts_standalone.launch"/>
 </launch>
