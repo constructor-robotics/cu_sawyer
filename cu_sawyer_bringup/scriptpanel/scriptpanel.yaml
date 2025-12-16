@@ -77,3 +77,10 @@ scripts:
     terminal: True
     tooltip: |
       A prompt to input text the system should say
+  - label: "Demo: Cube Arrangement"
+    script: demo-interactive-cube-arrangement.sh
+    terminal: True
+    group: demo
+    tooltip: |
+      The robot asks to pass the colored blocks
+      in random order and puts them on the table.
