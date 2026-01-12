@@ -1,5 +1,5 @@
 config:
-  num_buttons_per_row: 3
+  num_buttons_per_row: 4
   button_width: 140
   button_height: 60
   font: LiberationMono:Bold
@@ -33,15 +33,18 @@ scripts:
     script: move-to-ready.sh
     tooltip: |
       Move robot to a generic "ready" state
-      There is no collision avoidance with tables/objects!
       (Elbow down)
+    group: C-motion
+  - label: Move to Top-Grasp
+    script: move-to-top-grasp.sh
+    tooltip: |
+      Move robot to an initial "top-grasp" state
+      (Elbow up)
     group: C-motion
   - label: Move to Zero
     script: move-to-zero.sh
     tooltip: |
       Move robot to a well-defined 0 joint state
-      There is no collision avoidance with tables/objects!
-      (Elbow up)
     group: C-motion
   - label: Grasp
     script: gripper-closed.sh

@@ -36,6 +36,16 @@
         <joint name="right_j5" value="2.15"/>
         <joint name="right_j6" value="0.00"/>
     </group_state>
+    <group_state name="top-grasp" group="arm">
+        <joint name="right_j0" value="-0.1888037109375"/>
+        <joint name="right_j1" value="-0.668759765625"/>
+        <joint name="right_j2" value="-0.0160556640625"/>
+        <joint name="right_j3" value="1.677029296875"/>
+        <joint name="right_j4" value="-0.048068359375"/>
+        <joint name="right_j5" value="0.6409482421875"/>
+        <joint name="right_j6" value="-0.12966015625"/>
+    </group_state>
+
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="controller_box" link2="head" reason="Never"/>
     <disable_collisions link1="controller_box" link2="pedestal" reason="Adjacent"/>
