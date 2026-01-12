@@ -80,6 +80,12 @@ scripts:
     terminal: True
     tooltip: |
       A prompt to input text the system should say
+  - label: "Demo: Face Detection"
+    script: face-detection.sh
+    terminal: True
+    group: demo
+    tooltip: |
+      Detect and extract faces.
   - label: "Demo: Cube Arrangement"
     script: demo-interactive-cube-arrangement.sh
     terminal: True
@@ -87,3 +93,9 @@ scripts:
     tooltip: |
       The robot asks to pass the colored blocks
       in random order and puts them on the table.
+  - label: "Demo: Gamepad Controller"
+    script: gamepad-controller.sh
+    terminal: True
+    group: demo
+    tooltip: |
+      Experimental teleoperation through gamepad
