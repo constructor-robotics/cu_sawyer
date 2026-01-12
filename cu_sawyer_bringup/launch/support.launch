@@ -9,6 +9,7 @@
     </node>
 
     <include file="$(find cu_sawyer_moveit_config)/launch/move_group.launch"/>
+    <node name="add_colliders_in_planning_scene" pkg="cu_sawyer_support" type="add_colliders_in_planning_scene"/>
     <node name="moveit_by_name" pkg="moveit_by_name" type="moveit_by_name"/>
 
     <include file="$(find tts_piper)/launch/tts_standalone.launch"/>

@@ -6,5 +6,6 @@ catkin_package()
 
 catkin_install_python(PROGRAMS
   scripts/gripper_commander
+  scripts/add_colliders_in_planning_scene
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
