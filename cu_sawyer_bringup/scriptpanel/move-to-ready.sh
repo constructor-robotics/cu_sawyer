@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec rosrun intera_examples go_to_joint_angles.py -q -1.072865234375 1.2617412109375 -0.969126953125 -2.4151533203125 -2.80734375 -2.28434765625 3.4268525390625 -s 0.3
+exec rostopic pub /moveit_by_name moveit_by_name/Command "{'group':'arm','target': 'ready'}" 

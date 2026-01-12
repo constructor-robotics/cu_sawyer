@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec rosrun intera_examples go_to_joint_angles.py
+exec rostopic pub /moveit_by_name moveit_by_name/Command "{'group':'arm','target': 'extended'}" 
