@@ -10,11 +10,11 @@ def main():
 
     table_pose = geometry_msgs.msg.PoseStamped()
     table_pose.header.frame_id = "base"
-    table_pose.pose.position.x = 0.75
+    table_pose.pose.position.x = 0.82
     table_pose.pose.position.y = -0.1
-    table_pose.pose.position.z = -0.28
+    table_pose.pose.position.z = -0.30
     table_pose.pose.orientation.w = 1.0
-    psi.add_box("table", pose=table_pose, size=(0.8, 1.1, 0.2))
+    psi.add_box("table", pose=table_pose, size=(0.9, 1.1, 0.2))
 
     window_collider_pose = geometry_msgs.msg.PoseStamped()
     window_collider_pose.header.frame_id = "base"
