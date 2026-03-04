@@ -12,7 +12,7 @@ def main():
     table_pose.header.frame_id = "base"
     table_pose.pose.position.x = 0.82
     table_pose.pose.position.y = -0.1
-    table_pose.pose.position.z = -0.30
+    table_pose.pose.position.z = -0.275
     table_pose.pose.orientation.w = 1.0
     psi.add_box("table", pose=table_pose, size=(0.9, 1.1, 0.2))
 
