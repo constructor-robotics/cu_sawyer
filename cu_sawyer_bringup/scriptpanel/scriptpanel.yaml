@@ -99,3 +99,8 @@ scripts:
     group: demo
     tooltip: |
       Experimental teleoperation through gamepad
+  - label: Demo Videos
+    script: demo_videos.sh
+    group: D-demo
+    tooltip: |
+      Show robot-specific demo videos in fullscreen
