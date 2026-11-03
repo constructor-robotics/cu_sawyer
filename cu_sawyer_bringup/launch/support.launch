@@ -8,6 +8,7 @@
     <node name="cuify" pkg="cu_sawyer_bringup" type="cuify.sh"/>
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
         <rosparam param="source_list">[robot/joint_states]</rosparam>
+        <param name="rate" value="100"/>
     </node>
 
     <include file="$(find cu_sawyer_moveit_config)/launch/move_group.launch"/>
