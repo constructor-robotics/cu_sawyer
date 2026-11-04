@@ -5,7 +5,12 @@
     <node name="gripper_commander" pkg="cu_sawyer_support" type="gripper_commander"/>
     <node name="joint_trajectory_commander" pkg="intera_interface" type="joint_trajectory_action_server.py"/>
     <node name="screen_display_frame" pkg="tf2_ros" type="static_transform_publisher" args="0 0 0.002 0 0 0 1 screen screen_display"/>
-    <node name="cuify" pkg="cu_sawyer_bringup" type="cuify.sh"/>
+
+    <node name="cu_img_publisher" pkg="image_publisher" type="image_publisher">
+        <param name="filename" value="$(find cu_sawyer_bringup)/data/CU_Logo_RGB_Color_On_White.png"/>
+        <remap from="cu_img_publisher/image_raw" to="/robot/head_display" />
+    </node>
+
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
         <rosparam param="source_list">[robot/joint_states]</rosparam>
         <param name="rate" value="100"/>
